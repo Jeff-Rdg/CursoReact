@@ -3,7 +3,7 @@ import "./Content.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "../../views/pages/Home";
 
-import Param from "../../views/pages/Param";
+import UseMyHook from "../../views/pages/UseMyHook";
 import NotFound from "../../views/pages/NotFound";
 import UseState from "../../views/pages/UseState";
 import UseEffect from "../../views/pages/UseEffect";
@@ -25,7 +25,7 @@ const Content = (props) => {
         <Route path="/usecallback" element={<UseCallback />} />
         <Route path="/usecontext" element={<UseContext />} />
         <Route path="usereducer" element={<UseReducer />} />
-        <Route path="usemyhook" element={<Param />} />
+        <Route path="usemyhook" element={<UseMyHook />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

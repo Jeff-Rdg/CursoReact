@@ -18,9 +18,18 @@ function reducer(state, action) {
       return {
         ...state,
         user: {
-          name: "Jefferson",
+          name: action.payload,
         },
       };
+    case "multiply7":
+      return { ...state, number: state.number * 7 };
+
+    case "divider25":
+      return { ...state, number: state.number / 25 };
+    case "parseInt":
+      return { ...state, number: parseInt(state.number) };
+    case "numberAddN":
+      return { ...state, number: state.number + action.payload };
     default:
       return state;
   }
@@ -42,6 +51,12 @@ const UseReducer = (props) => {
         ) : (
           <span className="text">Sem usuário</span>
         )}
+        <button
+          className="btn"
+          onClick={() => exec({ type: "login", payload: "Maria" })}
+        >
+          Login
+        </button>
         <span className="text">{state.number}</span>
 
         <button className="btn" onClick={() => exec({ type: "add2ToNumber" })}>
@@ -49,7 +64,31 @@ const UseReducer = (props) => {
         </button>
       </div>
 
-      <SectionTitle title={"Atividade 02"} />
+      <SectionTitle title={"Desafio"} />
+      <div className="">
+        <button className="btn" onClick={() => exec({ type: "multiply7" })}>
+          *7
+        </button>
+        <button className="btn" onClick={() => exec({ type: "divider25" })}>
+          /25
+        </button>
+        <button className="btn" onClick={() => exec({ type: "parseInt" })}>
+          Mudar para inteiro
+        </button>
+
+        <button
+          className="btn"
+          onClick={() => exec({ type: "numberAddN", payload: 11 })}
+        >
+          +11
+        </button>
+        <button
+          className="btn"
+          onClick={() => exec({ type: "numberAddN", payload: 50 })}
+        >
+          +50
+        </button>
+      </div>
     </div>
   );
 };
